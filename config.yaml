@@ -1,0 +1,5 @@
+data_directory: "/Users/amanagrawal/Documents/naukri_data"
+chromadb_path: "/Users/amanagrawal/Documents/chromadb"
+embedding_model: "nomic-embed-text"
+chunk_size: 500
+chunk_overlap: 50

@@ -1,9 +1,16 @@
 from chromadb import PersistentClient
 from langchain_ollama import OllamaEmbeddings
+import yaml
 
+# Load configuration
+with open("config.yaml", "r") as config_file:
+    config = yaml.safe_load(config_file)
 
-client = PersistentClient(path="chroma_db")
-embedding_fn = OllamaEmbeddings(model="nomic-embed-text")
+chromadb_path = config["chromadb_path"]
+embedding_model = config["embedding_model"]
+
+client = PersistentClient(path=chromadb_path)
+embedding_fn = OllamaEmbeddings(model=embedding_model)
 collection = client.get_or_create_collection(name="client1")
 
 
